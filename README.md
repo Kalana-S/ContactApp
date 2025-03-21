@@ -24,10 +24,16 @@ A simple Android application for managing contacts using Room Database and MVVM 
 3. Build and run the application on an emulator or physical device.
 
 ## Usage
-1. Click the Add Contact button to add a new contact.
-2. Tap a contact to view Update and Delete options.
-3. Update the contact and save changes.
-4. Delete a contact if no longer needed.
+- Click the Add Contact button to add a new contact.
+- Tap a contact to view Update and Delete options.
+- Update the contact and save changes.
+- Delete a contact if no longer needed.
+
+## Database Structure
+The system uses a Room database (`contact_database`).
+
+## Screenshots
+![image](./Readme-src/conapp.png)
 
 ## License
 This project is open-source and available under the **MIT License**.
