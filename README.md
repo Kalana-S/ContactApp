@@ -14,9 +14,6 @@ A simple Android application for managing contacts using Room Database and MVVM 
 - RecyclerView
 - MVVM Architecture
 
-## Project Structure
-ContactApp/ │── app/ │ ├── src/ │ │ ├── main/ │ │ │ ├── java/com/example/contactapp/ │ │ │ │ ├── database/ # Room Database (Entity, DAO) │ │ │ │ ├── repository/ # Repository for data handling │ │ │ │ ├── viewmodel/ # ViewModel for UI logic │ │ │ │ ├── ui/ # Activities & Adapters │ │ │ ├── res/ │ │ │ │ ├── layout/ # XML layouts │ │ │ │ ├── values/ # Strings, colors, styles │── build.gradle │── AndroidManifest.xml │── README.md
-
 ## Installation & Setup
 1. Clone this repository:
    ```bash
