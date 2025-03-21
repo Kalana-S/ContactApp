@@ -29,7 +29,6 @@ ContactApp/
 |   |   |   |   |── values/
 |── build.gradle
 
-
 ## Installation & Setup
 1. Clone this repository:
    ```bash
