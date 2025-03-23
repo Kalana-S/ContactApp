@@ -9,9 +9,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.contactapp.R;
 import com.example.contactapp.database.Contact;
 import java.util.List;
+import android.widget.Filter;
+import android.widget.Filterable;
+import java.util.ArrayList;
 
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> implements Filterable {
     private List<Contact> contactList;
+    private List<Contact> contactListFull;
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
@@ -22,10 +26,17 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         this.listener = listener;
     }
 
+    public ContactAdapter() {
+        this.contactList = new ArrayList<>();
+        this.contactListFull = new ArrayList<>();
+    }
+
     public void setContacts(List<Contact> contacts) {
-        this.contactList = contacts;
+        this.contactList = new ArrayList<>(contacts);
+        this.contactListFull = new ArrayList<>(contacts);
         notifyDataSetChanged();
     }
+
 
     @Override
     public ContactViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -51,6 +62,37 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         return contactList == null ? 0 : contactList.size();
     }
 
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                List<Contact> filteredList = new ArrayList<>();
+                if (constraint == null || constraint.length() == 0) {
+                    filteredList.addAll(contactListFull);
+                } else {
+                    String filterPattern = constraint.toString().toLowerCase().trim();
+                    for (Contact contact : contactListFull) {
+                        if (contact.getName().toLowerCase().contains(filterPattern) ||
+                                contact.getPhoneNumber().contains(filterPattern)) {
+                            filteredList.add(contact);
+                        }
+                    }
+                }
+                FilterResults results = new FilterResults();
+                results.values = filteredList;
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                contactList.clear();
+                contactList.addAll((List) results.values);
+                notifyDataSetChanged();
+            }
+        };
+    }
+
     public static class ContactViewHolder extends RecyclerView.ViewHolder {
         TextView textViewName;
         TextView textViewPhone;
@@ -61,4 +103,5 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
             textViewPhone = itemView.findViewById(R.id.textViewPhone);
         }
     }
+
 }

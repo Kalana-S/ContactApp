@@ -7,6 +7,7 @@ A simple Android application for managing contacts using Room Database and MVVM 
 - View a list of saved contacts
 - Update existing contacts
 - Delete contacts
+- Search contacts based on name or phone number ✅ (New!)
 
 ## Technologies Used
 - Java

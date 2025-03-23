@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="50dp"/>
+    <solid android:color="@color/material_on_background_disabled"/>
+    <stroke android:width="1dp" android:color="@android:color/darker_gray"/>
+    <item android:name="android:iconTint">@android:color/white</item>
+</shape>

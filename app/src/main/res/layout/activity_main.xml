@@ -9,6 +9,19 @@
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/search_view_bg"
+        android:elevation="4dp"
+        android:foregroundTint="@color/white"
+        android:iconifiedByDefault="false"
+        android:padding="8dp"
+        android:queryHint="Search contacts..."
+        style="@style/CustomSearchView"/>
+
     <Button
         android:id="@+id/buttonAddContact"
         android:layout_width="wrap_content"
